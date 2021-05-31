@@ -1,6 +1,6 @@
                                            
 
-[中文](./doc/assert/README_zh.md)
+[中文](./README_zh.md)
 
 
 ![JUICE VM](./doc/assert/logo.png)      
