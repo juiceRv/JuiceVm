@@ -19,6 +19,18 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
  - 超级精简的uart，只有读和写两个外设寄存器.
  - 超级精简的MMU SV39支持.
  - 支持RISC-V官方标准的异常和中断托管
+## Juice Vm的地址空间分布
+
+| 虚拟机版本号 | 起始地址 | 大小(字节) | 寄存器名称 | 说明  | 所用宏名称 |
+| :-----------: | :-------- | :------- | :------- | :------------| :------------ |
+| c21682d3 | 0x80000000 | 0x12C00000 | SRAM | 内部存储 | RV_CPU_SIM_RAM_START_ADDR RV_CPU_SIM_RAM_SIZE |
+| c21682d3 | 0x92C00000 | 0x1 | UART_WRITE | uart发送寄存器 | pdev_uart0_write_addr |
+| c21682d3 | 0x92C00001 | 0x1 | UART_READ | uart接收寄存器 | pdev_uart0_read_addr |
+| c21682d3 | 0x92C00002 | 0x1 | UART_STATE | uart状态寄存器 | pdev_uart0_state_addr pdev_uart0_free_state pdev_uart0_readbusy_state |
+| c21682d3 | 0x92C00003 | 0x8 | mtime | mtime当前计数寄存器 | pdev_mtime_mtime_addr |
+| c21682d3 | 0x92c00007 | 0x8 | mtimecmp | mtime当前比较寄存器 | pdev_mtime_mtimecmp_addr |
+
+
 
 ## Juice Vm下的软件移植进度
 - 已经支持了c语言编程。
