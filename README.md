@@ -34,11 +34,11 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 - 适配 RT-SMART **TODO**。
 
 ## **快速上手**
-    [快速上手运行Hello world](./doc/get-started.md) **编写中**。
-    [运行Free rtos](./doc/run-freertos.md) **编写中**。
-    [运行mbedtls](./doc/run-mbedtls.md) **编写中**。
-    [运行SV39 MMU测试](./doc/run-mmu_sv39.md) **编写中**。
-    [运行mtime测试](./doc/run-mmu_sv39.md) **编写中**。
-    [运行mtime测试](./doc/run-mtime.md) **编写中**。
-    [运行 RT-thread](./doc/run-rtt.md) **编写中**。
-    [运行 linux kernel](./doc/run-linux.md) **编写中**。
+- [快速上手运行Hello world](./doc/get-started.md) **编写中**。
+- [运行Free rtos](./doc/run-freertos.md) **编写中**。
+- [运行mbedtls](./doc/run-mbedtls.md) **编写中**。
+- [运行SV39 MMU测试](./doc/run-mmu_sv39.md) **编写中**。
+- [运行mtime测试](./doc/run-mmu_sv39.md) **编写中**。
+- [运行mtime测试](./doc/run-mtime.md) **编写中**。
+- [运行 RT-thread](./doc/run-rtt.md) **编写中**。
+- [运行 linux kernel](./doc/run-linux.md) **编写中**。
