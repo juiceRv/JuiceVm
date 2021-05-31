@@ -3,6 +3,7 @@
 * [简介](#简介)
 * [Juice Vm的特点](#juice-vm的特点)
 * [Juice Vm的组成](#juice-vm的组成)
+* [Juice Vm 代码统计](#Juice-Vm-代码统计)
 * [Juice Vm的地址空间分布](#juice-vm的地址空间分布)
 * [Juice Vm下的软件移植进度](#juice-vm下的软件移植进度)
 * [快速安装](#快速安装)
@@ -50,6 +51,8 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
  - 超级精简的MMU SV39支持.
  - 支持RISC-V官方标准的异常和中断托管
 
+## Juice Vm 代码统计
+![JUICE VM](./doc/assert/juicevm_size.png) 
 
 ## Juice Vm的地址空间分布
 
