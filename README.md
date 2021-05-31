@@ -107,6 +107,9 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 | l | enable endless loop check (RV_ENDLESS_LOOP_CHECK_EXIT_CNT:(3)) | 启用死循环监测机制，当有连续3次出现同样的指令执行流程(包括寄存器和csr寄存器的值都没有改变),结束虚拟机的运行。可以搭配-L参数使用，方便调试固件。一般assert都是直接死循环。|
 
 
+# 社区支持
+    挖坑网首发 感谢晕哥一路的支持：[https://whycan.com/t_5844.html](https://whycan.com/t_5844.html)
+
 ## **CHANGE LOG**
 ### **2021-05-25**
 - opensbi和kernel的代码已发布到github！！！
@@ -215,3 +218,9 @@ kernel的配置文件在arch/riscv/configs/juicevm_defconfig,make ARCH=riscv jui
 5. 已完成mtimer测试。
 6. 已完成opensbi移植。
 
+# 鸣谢
+- [哇酷网](https://whycan.com/t_5844.html)
+- [RT-thread](https://www.rt-thread.io/)
+- [RISC-V](https://riscv.org/)
+- [linux](https://www.kernel.org/)
+    
