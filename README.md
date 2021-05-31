@@ -19,6 +19,8 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
  - 超级精简的uart，只有读和写两个外设寄存器.
  - 超级精简的MMU SV39支持.
  - 支持RISC-V官方标准的异常和中断托管
+
+
 ## Juice Vm的地址空间分布
 
 | 虚拟机版本号 | 起始地址 | 大小(字节) | 寄存器名称 | 说明  | 所用宏名称 |
@@ -29,8 +31,6 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 | c21682d3 | 0x92C00002 | 0x1 | UART_STATE | uart状态寄存器 | pdev_uart0_state_addr pdev_uart0_free_state pdev_uart0_readbusy_state |
 | c21682d3 | 0x92C00003 | 0x8 | mtime | mtime当前计数寄存器 | pdev_mtime_mtime_addr |
 | c21682d3 | 0x92c00007 | 0x8 | mtimecmp | mtime当前比较寄存器 | pdev_mtime_mtimecmp_addr |
-
-
 
 ## Juice Vm下的软件移植进度
 - 已经支持了c语言编程。
@@ -45,6 +45,28 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 - 适配 GDB 通用接口支持 **TODO**。
 - 适配 RT-SMART **TODO**。
 
+
+## 快速安装
+- **UBUNTU/DEBIAN** APT安装
+```
+    echo "deb http://xiaohui.mongoyun.com:3333/ trusty main" | sudo tee -a /etc/apt/sources.list
+    wget -O - http://xiaohui.mongoyun.com:3333/key/deb.gpg.key | sudo apt-key add -
+    sudo apt update
+    sudo apt install juicevm
+    juicevm
+```
+- **CENTOS**
+```
+    echo "deb http://xiaohui.mongoyun.com:3333/ trusty main" | sudo tee -a /etc/apt/sources.list
+    wget -O juice_vm_release_for_Linux_laster.zip https://github.com/juiceRv/JuiceVm/raw/master/juice_vm_release_for_Linux_laster.zip
+    unzip juice_vm_release_for_Linux_laster.zip
+    cd juice_vm_release_for_Linux_c21682d3/juice_vm_release_for_Linux
+    sudo chmod +x juice_vm_for_Linux.out
+    ./juice_vm_for_Linux.out
+```
+- **WINDOW**
+
+**编译中**
 ## **快速上手**
 - [快速上手运行Hello world](./doc/get-started.md) **编写中**。
 - [运行Free rtos](./doc/run-freertos.md) **编写中**。
@@ -54,3 +76,119 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 - [运行mtime测试](./doc/run-mtime.md) **编写中**。
 - [运行 RT-thread](./doc/run-rtt.md) **编写中**。
 - [运行 linux kernel](./doc/run-linux.md) **编写中**。
+
+## 运行freertos 截图
+![JUICE VM FreeRtos](./doc/assert/freertos.png)
+
+## 运行rt-thread 截图
+![JUICE VM RT-thread](./doc/assert/juicevm_rtt.jpg)
+
+
+## **CHANGE LOG**
+### **2021-05-25**
+- opensbi和kernel的代码已发布到github！！！
+[https://github.com/juiceRv/kernel_juicevm_port](https://github.com/juiceRv/kernel_juicevm_port)
+kernel的配置文件在arch/riscv/configs/juicevm_defconfig,make ARCH=riscv juicevm_defconfig  
+- 需要修改下arch/riscv/configs/juicevm_defconfig里的CONFIG_INITRAMFS_SOURCE="/mnt/ssd_prj/risc-v_sim/sim/test/opensbi/opensbi-master/rootfs"  
+修改为opensbi里的路径  
+
+    opensbi仓库  
+    [https://github.com/juiceRv/opensbi_juicevm_port](https://github.com/juiceRv/opensbi_juicevm_port)
+
+    toolchains  
+    [https://github.com/juiceRv/gcc-gnu-toolchains-for-juicevm](https://github.com/juiceRv/gcc-gnu-toolchains-for-juicevm)
+
+***
+
+### **20210524进展公布，发布包发布juice_vm_release_for_Linux_c21682d3.zip：**
+1. 修复了mtime在m-mode,s-mode和u-mode下的中断处理漏洞。
+2. 修复了ecall在s-mode下的漏洞。
+3. 修复了在s-mode和u-mode下进入异常模式，更新csr寄存器的漏洞。
+4. 移植了linux。  
+
+    **juice_vm成功运行kernel主线5.0.0。**  
+    **juice_vm成功运行kernel主线5.0.0。**  
+    **juice_vm成功运行kernel主线5.0.0。**  
+
+***
+
+### **20210508更新：**
+1. 上传一个ubuntu20.04上可以正常运行的发布包,感谢@XBOOT大佬的反馈。
+2. 添加了div指令支持。
+3. 修复了divuw，divw，remu，remw，amomin.w，amoswap.w的指令错误。
+
+***
+### **20210427更新：**
+    提交了RT-Thread 的适配 到官方仓库：详情请点击https://github.com/RT-Thread/rt-thread/tree/master/bsp/juicevm
+***
+
+### **20210424更新:**
+#### **软件适配进度**
+1.已完成rt-thread移植。
+
+#### **更新了支持的参数：**
+1. 新增-L参数用于指定打印日志方式。
+2. 新增-l参数用于在出现死循环的时候结束运行。
+3. 新增-r参数用于开启trap调试打印
+4. 更新了Alive logo。
+5. 新增-T参数用于执行过程输出反汇编调试打印。
+6. 新增m模块支持。
+7. 新增s-mode支持(u-mode支持中）。
+
+***
+
+
+### **202210306更新:**  
+#### **软件适配进度**
+1. 已经支持了c语言编程。
+2. 已完成freertos移植。
+3. 已完成mebedtls移植。
+4. 已完成mmu sv39测试。
+5. 已完成mtimer测试。
+6. 已完成opensbi移植。
+
+#### **更新了支持的参数：**
+- -m **参数用于开启mmu调试信息**
+#### **提交日志**
+
+- 1113e998 add sfence.vma instr
+- f118d476 add print instr support
+- 1e3e7204 add AMOSWAP.D LR.D and SC.D instr support
+- 686741ea add AMOSWAP.D LR.D and SC.D instr support
+- f2f699c0 add -i arg to enable instr print support
+- 113f66da add misa csr support
+- 19cf60d1 fix divu err
+- ad512e54 add divu remw and remu instr
+- 9abc0566 fix mem overflow
+- 0ceb663e fix divw instr and add REMW instr
+- 10a2ea78 fix divw instr
+- 9c93c4ce add amoswap.w , mul and divw instr
+- df10ad45 change the fireware start addr to 0x80000000
+- d31b4ac1 add amoadd.w inst
+
+***
+
+### 以下 2021-03-06 更新:
+
+无第三方库不到5000行C语言实现一个risc-v虚拟机，带mmu
+
+基于指令集 rv64i
+
+实现了mtime，超级精简的uart和mmu sv39.
+
+#### **更新了支持的参数：**
+- -a **关闭所有调试打印**
+- -e **关闭错误打印**
+- -g **用更好的方式来显示打印**
+- -d **开启所有调试打印(包括寄存器和csr列表)**
+- -i **开启指令解码调试信息**
+- -m **开启mmu调试信息**
+
+#### **软件适配进度**
+1. 已经支持了c语言编程。
+2. 已完成freertos移植。
+3. 已完成mebedtls移植。
+4. 已完成mmu sv39测试。
+5. 已完成mtimer测试。
+6. 已完成opensbi移植。
+
