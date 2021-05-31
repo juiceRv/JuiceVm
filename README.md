@@ -88,11 +88,10 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 | :------ | :------- | :-------|
 | t | enable test mode | 进入固件测试模式<br>当出现下面的状态会结束运行并且打印出通过还是失败的字样,x3_gp寄存器的值为1 和 x17_a7寄存器的值为93时,进入了ecall异常就会触发。x10_a0 寄存器的值为 0时打印pass字样，否则打印fail字样 |
 | **T** | enable trap debug mode | 使能异常调试模式，出现异常时会打印当前异常的调试信息 |
-| d | enable debug mode | 打开虚拟机内所有的调试选项，输出最详细的调试信息，包括指令译码，处理执行，当前寄存器列表，csr列表等|
-| c | print cst operation msg | 打开虚拟机的csr寄存器读写调试信息。读写csr寄存器的时候都会打印对应的csr寄存器的值|
-
+| d | enable debug mode | 打开虚拟机内所有的调试选项，输出最详细的调试信息，包括指令译码，处理执行，当前寄存器列表，csr列表等 |
+| c | print cst operation msg | 打开虚拟机的csr寄存器读写调试信息。读写csr寄存器的时候都会打印对应的csr寄存器的值 |
 | a | diable all debug msg | 关闭所有调试选项，译码调试默认打开 |
-| x | enable test mode for exception | 打开异常测试模式，当出现异常时结束运行|
+| x | enable test mode for exception | 打开异常测试模式，当出现异常时结束运行 |
 | g | enable better readability printing | 使用可读性更好的方式打印信息 |
 | e | disable all error msg | 关闭所有的错误信息打印 |
 | i | enable all instr debug msg | 打开所有指令调试信息打印 |
@@ -104,7 +103,7 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 | **M** | disable mmu err msg | 关闭mmu缺页异常，访问异常，加载异常的错误信息 |
 | r | enable trap debug msg | 打印更详细的进入中断的调试信息 |
 | **A** | enable addr translation debug print | 打印地址转换的调试打印 |
-| **L**(n) | output_mode_sel n = 0 -> stdout<br> 1 -> log_buf UNIX SYS ONLY(buf_size:(2900))<br> 2 -> none<br> 选择虚拟机输出的方式，1，直接标准输出。2，使用一个buf先缓存，退出的时候再输出bug大小2900Byte。3，不输出。<br> |
+| **L**(n) | log mode | output_mode_sel n = 0 -> stdout<br> 1 -> log_buf UNIX SYS ONLY(buf_size:(2900))<br> 2 -> none<br> 选择虚拟机输出的方式，1，直接标准输出。2，使用一个buf先缓存，退出的时候再输出bug大小2900Byte。3，不输出。<br> |
 | l | enable endless loop check (RV_ENDLESS_LOOP_CHECK_EXIT_CNT:(3)) | 启用死循环监测机制，当有连续3次出现同样的指令执行流程(包括寄存器和csr寄存器的值都没有改变),结束虚拟机的运行。可以搭配-L参数使用，方便调试固件。一般assert都是直接死循环。|
 
 
