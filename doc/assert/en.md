@@ -1,9 +1,6 @@
-                                           
-
-[中文](./doc/assert/README_zh.md)
+![JUICE VM](./doc/assert/logo.png)                                                 
 
 
-![JUICE VM](./doc/assert/logo.png)      
    * [Introduction](#introduction)
    * [The Advantage of Juice Vm](#the-advantage-of-juice-vm)
    * [The feature of  Juice Vm](#the-feature-of--juice-vm)
