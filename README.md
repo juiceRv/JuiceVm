@@ -83,6 +83,9 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 ## 运行rt-thread 截图
 ![JUICE VM RT-thread](./doc/assert/juicevm_rtt.jpg)
 
+## 运行linx 5.0.0 截图
+![JUICE VM linux kernel](./doc/assert/juicevm_kernel.png)
+
 ## **软件参数使用说明**
 | 参数 | 参数名称 | 说明 |
 | :------ | :------- | :-------|
@@ -224,3 +227,5 @@ kernel的配置文件在arch/riscv/configs/juicevm_defconfig,make ARCH=riscv jui
 - [RISC-V](https://riscv.org/)
 - [linux](https://www.kernel.org/)
     
+# 联系作者
+juicemail@163.com
