@@ -189,7 +189,7 @@ kernel configuration :arch/riscv/configs/juicevm_defconfig,make ARCH=riscv juice
 
 ***
 ### **20210427：**
-    Support RT-Thread OS ,please refer: https://github.com/RT-Thread/rt-thread/tree/master/bsp/juicevm
+   Support RT-Thread OS ,please refer: https://github.com/RT-Thread/rt-thread/tree/master/bsp/juicevm
 ***
 
 ### **2021042:**
