@@ -15,7 +15,7 @@
 * [社区支持](#社区支持)
     * [<strong>CHANGE LOG</strong>](#change-log)
         * [<strong>2021-05-25</strong>](#2021-05-25)
-        * [<strong>20210524进展公布，发布包发布juice_vm_release_for_Linux_c21682d3.zip：</strong>](#20210524进展公布发 布包发布juice_vm_release_for_linux_c21682d3zip)
+        * [<strong>20210524进展公布，发布包发布juice_vm_release_for_Linux_c21682d3.zip：</strong>](#20210524进展公布，发布包发布juice_vm_release_for_Linux_c21682d3.zip：)
         * [<strong>20210508更新：</strong>](#20210508更新)
         * [<strong>20210427更新：</strong>](#20210427更新)
         * [<strong>20210424更新:</strong>](#20210424更新)
