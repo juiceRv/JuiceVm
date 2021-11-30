@@ -58,12 +58,32 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 
 | 虚拟机版本号 | 起始地址 | 大小(字节) | 寄存器名称 | 说明  | 所用宏名称 |
 | :-----------: | :-------- | :------- | :------- | :------------| :------------ |
-| c21682d3 | 0x80000000 | 0x12C00000 | SRAM | 内部存储 | RV_CPU_SIM_RAM_START_ADDR RV_CPU_SIM_RAM_SIZE |
-| c21682d3 | 0x92C00000 | 0x1 | UART_WRITE | uart发送寄存器 | pdev_uart0_write_addr |
-| c21682d3 | 0x92C00001 | 0x1 | UART_READ | uart接收寄存器 | pdev_uart0_read_addr |
-| c21682d3 | 0x92C00002 | 0x1 | UART_STATE | uart状态寄存器 | pdev_uart0_state_addr pdev_uart0_free_state pdev_uart0_readbusy_state |
-| c21682d3 | 0x92C00003 | 0x8 | mtime | mtime当前计数寄存器 | pdev_mtime_mtime_addr |
-| c21682d3 | 0x92c00007 | 0x8 | mtimecmp | mtime当前比较寄存器 | pdev_mtime_mtimecmp_addr |
+| 430de41bc | 0x80000000 | 0x12C00000 | SRAM | 内部存储 | RV_CPU_SIM_RAM_START_ADDR RV_CPU_SIM_RAM_SIZE |
+| 430de41bc | pdev_uart0_write_addr | 0x1 | UART_WRITE | uart发送寄存器 | pdev_uart0_write_addr |
+| 430de41bc | pdev_uart0_read_addr | 0x1 | UART_READ | uart接收寄存器 | pdev_uart0_read_addr |
+| 430de41bc | pdev_uart0_state_addr | 0x1 | UART_STATE | uart状态寄存器 | pdev_uart0_state_addr pdev_uart0_free_state pdev_uart0_readbusy_state |
+| 430de41bc | rv_sim_pdev_clint_mtime_addr | 0x8 | mtime | mtime当前计数寄存器 | rv_sim_pdev_clint_mtime_addr |
+| 430de41bc | rv_sim_pdev_clint_mtimecmp_addr | 0x8 | mtimecmp | mtime当前比较寄存器 | rv_sim_pdev_clint_mtimecmp_addr |
+| 430de41bc(linux only) | pdev_netcard0_write_addr | 0x1 | netcard0_write | 网卡发送缓冲区起始地址 | pdev_netcard0_write_addr |
+| 430de41bc(linux only) | pdev_netcard0_write_end_addr | 0x1 | netcard0_write_end | 网卡缓冲区末尾地址 | pdev_netcard0_write_end_addr |
+| 430de41bc(linux only) | pdev_netcard0_write_cnt_H_addr | 0x1 | netcard0_write_cnt_H | 网卡发送缓冲区数据大小高8位 | pdev_netcard0_write_cnt_H_addr |
+| 430de41bc(linux only) | pdev_netcard0_write_cnt_L_addr | 0x1 | netcard0_write_cnt_L | 网卡发送缓冲区数据大小低8位 | pdev_netcard0_write_cnt_L_addr |
+| 430de41bc(linux only) | pdev_netcard0_write_start_addr | 0x1 | netcard0_write_start | 网卡使能发送 | pdev_netcard0_write_start_addr |
+| 430de41bc(linux only) | pdev_netcard0_read_addr | 0x1 | netcard0_read | 网卡接收缓冲区起始地址 | pdev_netcard0_read_addr |
+| 430de41bc(linux only) | pdev_netcard0_read_end_addr | 0x1 | netcard0_read_end | 网卡接收缓冲区末尾地址 | pdev_netcard0_read_end_addr |
+| 430de41bc(linux only) | pdev_netcard0_readbuf_cnt_H_addr | 0x1 | netcard0_readbuf_cnt_H | 网卡接收缓冲区数据大小高8位 | pdev_netcard0_readbuf_cnt_H_addr |
+| 430de41bc(linux only) | pdev_netcard0_readbuf_cnt_L_addr | 0x1 | netcard0_readbuf_cnt_L | 网卡接收缓冲区数据大小低8位 | pdev_netcard0_readbuf_cnt_L_addr |
+| 430de41bc(linux only) | pdev_netcard0_state_addr | 0x1 | netcard0_state | 网卡当前状态 | pdev_netcard0_state_addr pdev_netcard0_free_state pdev_netcard0_readbusy_state |
+| 430de41bc | pdev_fb0_write_x_H_addr | 0x1 | fb0_write_x_H | fb0写坐标x高8位 | pdev_fb0_write_x_H_addr |
+| 430de41bc | pdev_fb0_write_x_L_addr | 0x1 | fb0_write_x_L | fb0写坐标x低8位 | pdev_fb0_write_x_L_addr |
+| 430de41bc | pdev_fb0_write_y_H_addr | 0x1 | fb0_write_y_H | fb0写坐标y高8位 | pdev_fb0_write_y_H_addr |
+| 430de41bc | pdev_fb0_write_y_L_addr | 0x1 | fb0_write_y_L | fb0写坐标y低8位 | pdev_fb0_write_y_L_addr |
+| 430de41bc | pdev_fb0_write_r_addr | 0x1 | fb0_write_r_ | fb0写坐标红色分量 | pdev_fb0_write_r_addr |
+| 430de41bc | pdev_fb0_write_g_addr | 0x1 | fb0_write_g | fb0写坐标绿色分量 | pdev_fb0_write_g_addr |
+| 430de41bc | pdev_fb0_write_b_addr | 0x1 | fb0_write_g | fb0写坐标蓝色分量 | pdev_fb0_write_b_addr |
+| 430de41bc | pdev_fb0_write_set_addr | 0x1 | fb0_write_set | fb0设置颜色 | pdev_fb0_write_set_addr |
+| 430de41bc | pdev_fb0_write_render_addr | 0x1 | fb0_write_render | fb0使能渲染 | pdev_fb0_write_render_addr |
+
 
 ## Juice Vm下的软件移植进度
 - 已经支持了c语言编程。
@@ -75,12 +95,12 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 - 已完成rt-thread移植，感谢@熊大和@Andy Chen的支持 [传送门](https://github.com/RT-Thread/rt-thread/tree/master/bsp/juicevm)。
 - 已完成kernel主线5.0.0 [传送门](https://github.com/juiceRv/kernel_juicevm_port)。
 - 上传Juice Vm下的GCC toolchain [传送门](https://github.com/juiceRv/gcc-gnu-toolchains-for-juicevm)。
-- 适配 GDB 通用接口支持 **TODO**。
+- 适配 GDB 通用接口支持。
 - 适配 RT-SMART **TODO**。
 
 
 ## 快速安装
-- **UBUNTU/DEBIAN** APT安装
+~~- **UBUNTU/DEBIAN** APT安装~~
 ```
     echo "deb http://xiaohui.mongoyun.com:3333/ trusty main" | sudo tee -a /etc/apt/sources.list
     wget -O - http://xiaohui.mongoyun.com:3333/key/deb.gpg.key | sudo apt-key add -
@@ -88,14 +108,14 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
     sudo apt install juicevm
     juicevm
 ```
+
 - **CENTOS**
 ```
-    echo "deb http://xiaohui.mongoyun.com:3333/ trusty main" | sudo tee -a /etc/apt/sources.list
     wget -O juice_vm_release_for_Linux_laster.zip https://github.com/juiceRv/JuiceVm/raw/master/juice_vm_release_for_Linux_laster.zip
     unzip juice_vm_release_for_Linux_laster.zip
-    cd juice_vm_release_for_Linux_c21682d3/juice_vm_release_for_Linux
-    sudo chmod +x juice_vm_for_Linux.out
-    ./juice_vm_for_Linux.out
+    cd linux
+    sudo chmod +x juicevm_rv64_for_linux.out
+    ./juicevm_rv64_for_linux.out
 ```
 - **WINDOW**
 
@@ -147,6 +167,12 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
    挖坑网首发 感谢晕哥一路的支持：[https://whycan.com/t_5844.html](https://whycan.com/t_5844.html)
 
 ## **CHANGE LOG**
+### **2021-10-24更新：**
+- 1.修复指令bug并通过risc-v官方指令集测试。
+- 2.成功启动busybox。固件:linux5_busybox_fw_payload.bin
+- 3.在linux平台下支持模拟网卡。
+- 4.支持模拟显示器。
+
 ### **2021-05-25**
 - opensbi和kernel的代码已发布到github！！！
 [https://github.com/juiceRv/kernel_juicevm_port](https://github.com/juiceRv/kernel_juicevm_port)
