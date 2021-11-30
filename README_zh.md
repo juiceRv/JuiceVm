@@ -130,6 +130,9 @@ juice vm去掉注释后展开所有的宏的代码行数仅**12523**行，仅**3
 - [运行 RT-thread](./doc/run-rtt.md) **编写中**。
 - [运行 linux kernel](./doc/run-linux.md) **编写中**。
 
+## 运行linx 5.0.0 busybox 截图
+![JUICE VM linux kernel](./doc/assert/juicevm_busybox.png)
+
 ## 运行freertos 截图
 ![JUICE VM FreeRtos](./doc/assert/freertos.png)
 
